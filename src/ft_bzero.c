@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 13:55:46 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/04 14:04:18 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/07 15:48:57 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void	*ft_bzero(void *s, size_t len)
 {
-	char *temp;
+	unsigned char *temp;
 
-	temp = (char*)s;
+	temp = (unsigned char*)s;
 	while(len--)
 	{
 		*temp = 0;

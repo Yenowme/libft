@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:00:56 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/04 18:47:43 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/07 16:02:13 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strrchr(const char *s, int c);
 void	*ft_bzero(void *s, size_t len);
 int			ft_atoi(char *str);
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 
 int	ft_isalpha(char *str);
 int	ft_isdigit(char *str);
