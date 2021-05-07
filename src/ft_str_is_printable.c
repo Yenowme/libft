@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
+/*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 15:47:22 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/03 17:48:49 by yejeong          ###   ########.fr       */
+/*   Created: 2021/02/24 20:19:12 by yejeong           #+#    #+#             */
+/*   Updated: 2021/02/25 12:59:00 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_str_is_printable(char *str)
 {
-	char *temp;
+	int i;
 
-	temp = (char *)dst;
-	while(n--)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		*temp = *(char *)src;
-		temp++;
-		src++;
+		if (str[i] <= 31 || str[i] >= 127)
+			return (0);
+		i++;
 	}
-	return (dst);
+	return (1);
 }

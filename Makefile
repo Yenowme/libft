@@ -1,26 +1,26 @@
 CC		= gcc
-SRCS		= $(wildcard *.c)
+CFLAGS	= -Wall -Wextra -Werror
+SRCS		= $(wildcard ./src/*.c)
 OBJS		= $(SRCS:.c=.o)
 TARGET		= libft.a
-LIBS		= -lft
-LIB_DIRS	= -L~
-INC		= -I./includes
+INC_DIR		= includes
+
+.PHONY: clean fclean re all
 
 all : $(TARGET)
-	$(CC) -o $(TARGET) $(OBJS) $(INC) $(LIB_DIRS) $(LIBS)
 
-$(TARGET) :
-	$(CC) -c $(SRCS) $(INC) $(LIB_DIRS) $(LIBS)
+.c.o :
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INC_DIR)
+
+$(TARGET) : $(OBJS)
+	ar crv $@ $(OBJS)
 
 clean :
-	rm $(OBJS) $(TARGET)
+	rm -f $(OBJS)
 
 fclean :
+	rm -f $(TARGET)
 
 re :
 	make fclean
 	make all
-
-libft.a : $(TARGET)
-	$(CC) -o $(TARGET) $(OBJS) $(INC) $(LIB_DIRS) $(LIBS)
-
