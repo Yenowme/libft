@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/24 20:19:12 by yejeong           #+#    #+#             */
-/*   Updated: 2021/02/25 12:59:00 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/10 16:18:10 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/10 16:22:47 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int	ft_toupper(int c)
 {
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] <= 31 || str[i] >= 127)
-			return (0);
-		i++;
-	}
-	return (1);
+	if ('a' <= c && c <= 'z')
+		return (c - ('a' - 'A'));
+	return (c);
 }

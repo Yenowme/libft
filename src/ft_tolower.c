@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 12:59:37 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/10 17:11:52 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/10 16:21:35 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/10 16:21:53 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+int	ft_tolower(int c)
 {
-	size_t i;
-
-	if (!*needle)
-		return ((char*)haystack);
-	while(*haystack && len)
+	if ('A' <= c && c <= 'Z')
 	{
-		i = 0;
-		while(haystack[i] == needle[i] && i < len)
-		{
-			i++;
-			if(!needle[i])
-				return ((char*)haystack);
-		}
-		haystack++;
-		len--;
+		return (c + ('a' - 'A'));
 	}
-	return (NULL);
+	return (c);
 }
