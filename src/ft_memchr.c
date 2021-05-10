@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrcchr.c                                      :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 17:53:43 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/07 18:19:31 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/10 14:53:05 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/10 14:57:02 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int i;
+#include <stdlib.h>
 
-	i = 0;
-	while(s[i])
-		i++;
-	while(i >= 0)
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	while (n--)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		if(*(unsigned char *)s == (unsigned char)c)
+			return ((void*)s);
+		s++;
 	}
-	return (0);
+	return (NULL);
 }

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrcchr.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 17:53:43 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/07 18:19:31 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/10 14:12:25 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/10 14:51:19 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int i;
+#include <stdlib.h>
 
-	i = 0;
-	while(s[i])
-		i++;
-	while(i >= 0)
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	unsigned char *temp;
+
+	temp = (unsigned char*)dst;
+	if (dst == src)
+		return (dst);
+	if (dst < src)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		while (len--)
+			*temp++ = *(unsigned char*)src++;
 	}
-	return (0);
+	else
+	{
+		temp += len;
+		src += len;
+		while (len--)
+			*--temp = *(unsigned char*)--src;
+	}
+	return (dst);
 }
