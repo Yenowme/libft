@@ -4,6 +4,7 @@
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
+
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:17:34 by yejeong           #+#    #+#             */
 /*   Updated: 2021/05/10 19:38:00 by yejeong          ###   ########.fr       */

@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "includes/libft.h"
+#include "libft.h"
 
 int main()
 {
-	int size = 8539;
+	char *s = "split  ||this|for|me|||||!|";
+	int i = 0;
+	char **result = ft_split(s, '|');
 
-	void * d1 = ft_calloc(size, sizeof(int));
-	void * d2 = calloc(size, sizeof(int));
-	if (memcmp(d1, d2, size * sizeof(int)))
-		printf("error");
-	free(d1);
-	free(d2);
-	printf("sucsses");
+	while (result[i])
+	{
+		printf ("%dis = %s\n",i , result[i]);
+		free(result[i]);
+		i++;
+	}
+	free(result);
 
 }

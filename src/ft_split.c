@@ -3,120 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 13:03:55 by yejeong           #+#    #+#             */
-/*   Updated: 2021/03/16 20:42:21 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/11 15:59:30 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/11 17:30:00 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-int		str_check(char *str, char *charset, int i)
-{
-	int j;
-
-	j = 0;
-	while (charset[j])
-	{
-		if (str[i] == charset[j])
-			return (1);
-		j++;
-	}
-	return (0);
-}
-
-int		vertical_size(char *str, char *charset)
-{
-	int	rt_size;
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	rt_size = 0;
-	while (str_check(str, charset, i))
-		i++;
-	while (str[i])
-	{
-		while (!str_check(str, charset, i))
-			i++;
-		while (str_check(str, charset, i))
-			i++;
-		rt_size++;
-	}
-	return (rt_size);
-}
-
-void	set_m_size(int **m_size, char *str, char *charset)
-{
-	int	i;
-	int	k;
-	int vertical;
-
-	vertical = vertical_size(str, charset);
-	k = -1;
-	i = 0;
-	*m_size = (int *)malloc(sizeof(int) * vertical);
-	while (++k < vertical)
-		m_size[0][k] = 0;
-	k = 0;
-	while (str_check(str, charset, i))
-		i++;
-	while (str[i])
-	{
-		while (!str_check(str, charset, i) && str[i])
-		{
-			i++;
-			m_size[0][k]++;
-		}
-		while (str_check(str, charset, i))
-			i++;
-		k++;
-	}
-	return ;
-}
-
-char	**rt_malloc(int *m_size, int vert_size)
+static char	**x_malloc(char const *s, char c)
 {
 	char	**rt;
-	int		i;
+	int		x_size;
 
-	i = 0;
-	rt = (char **)malloc(sizeof(char *) * vert_size + 1);
-	if (!rt)
-		return (0);
-	while (i < vert_size)
+	x_size = 0;
+	while (*s == c)
+		s++;
+	while (*s)
 	{
-		rt[i] = (char *)malloc(sizeof(char) * m_size[i] + 1);
-		i++;
+		x_size++;
+		while (*s != c)
+			s++;
+		while (*s++ == c)
+			s++;
 	}
-	return (rt);
+	return (rt = (char**)malloc(sizeof(char*) * (x_size + 1)));
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(char const *s, char c)
 {
-	int		*m_size;
+	char	**rt;
 	int		i;
 	int		k;
-	int		j;
-	char	**rt;
+	int		index;
+	int		y_size;
 
+	i = 0;
 	k = 0;
-	i = -1;
-	set_m_size(&m_size, str, charset);
-	rt = rt_malloc(m_size, vertical_size(str, charset));
-	while (str_check(str, charset, k))
-		k++;
-	while (++i < vertical_size(str, charset))
+	if (!(rt = x_malloc(s, c)))
+		return (0);
+	while (s[i] == c)
+		i++;
+	index = i;
+	while (s[i])
 	{
-		j = -1;
-		while (++j < m_size[i])
-			rt[i][j] = str[k++];
-		rt[i][++j] = '\0';
-		while (str_check(str, charset, k))
-			k++;
+		y_size = 0;
+		while (s[i++] != c)
+			y_size++;
+		rt[k++] = ft_substr(s, index, y_size);
+		while (s[i] == c)
+			i++;
+		index = i;
 	}
-	rt[i] = 0;
+	rt[k] = 0;
 	return (rt);
 }

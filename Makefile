@@ -25,3 +25,7 @@ fclean :
 re :
 	make fclean
 	make all
+
+test :
+	$(CC) -g $(CFLAGS) test.c $(SRCS) -I $(INC_DIR)
+
