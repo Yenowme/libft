@@ -6,14 +6,14 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:36:23 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/11 17:36:24 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/12 18:05:26 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	atoi_sub(char *str)
+static unsigned long	atoi_sub(char *str)
 {
-	int i;
-	int rt;
+	int				i;
+	unsigned long	rt;
 
 	rt = 0;
 	i = 0;
@@ -29,9 +29,9 @@ static int	atoi_sub(char *str)
 
 int		ft_atoi(char *str)
 {
-	int i;
-	int sum;
-	int rt;
+	int				i;
+	int				sum;
+	unsigned long	rt;
 
 	sum = 1;
 	i = 0;
@@ -45,9 +45,10 @@ int		ft_atoi(char *str)
 		i++;
 	}
 	if (str[i] >= '0' && str[i] <= '9')
-	{
 		rt = atoi_sub(&str[i]);
-		rt *= sum;
-	}
-	return (rt);
+	if (sum == 1 && rt > 9223372036854775807)
+		return (-1);
+	else if (sum == -1 && rt > 9223372036854775807)
+		return (0);
+	return ((int)rt * sum);
 }

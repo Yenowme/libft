@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:59:30 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/11 17:30:00 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/12 16:43:28 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,15 @@ static char	**x_malloc(char const *s, char c)
 	return (rt = (char**)malloc(sizeof(char*) * (x_size + 1)));
 }
 
-char	**ft_split(char const *s, char c)
+char		**final_free(char **rt, int k)
+{
+	while (--k > 0)
+		free(rt[k]);
+	free(rt);
+	return (0);
+}
+
+char		**ft_split(char const *s, char c)
 {
 	char	**rt;
 	int		i;
@@ -51,7 +59,8 @@ char	**ft_split(char const *s, char c)
 		y_size = 0;
 		while (s[i++] != c)
 			y_size++;
-		rt[k++] = ft_substr(s, index, y_size);
+		if (!(rt[k++] = ft_substr(s, index, y_size)))
+			return (final_free(rt, k));
 		while (s[i] == c)
 			i++;
 		index = i;

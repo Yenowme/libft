@@ -3,46 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
+/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:52:46 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 12:12:13 by jeong-yena       ###   ########.fr       */
+/*   Updated: 2021/05/12 18:07:49 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void *malloc_size(int n, int *size)
+static void	malloc_size(int n, int *size)
 {
-	if (n == 0)
-		return (0);
-	else
+	if (n != 0)
 	{
 		malloc_size(n / 10, size);
-		*size++;
+		*size += 1;
 	}
 }
 
-static void set_itoa(char *rt, int n, int size)
+static int	set_itoa(char *rt, long long n, int size)
 {
-	if (n == 0)
+	if (n < 10)
 	{
-		rt[size] = n % 10;
+		rt[size] = '0' + n;
+		return (0);
 	}
 	else
 	{
 		set_itoa(rt, n / 10, size - 1);
+		rt[size] = '0' + n % 10;
+		return (1);
 	}
 }
 
-char *ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	char 	*rt;
-	int size;
+	char		*rt;
+	int			size;
+	long long	num;
+	int			flag;
 
+	flag = 0;
+	num = n;
 	size = 0;
 	malloc_size(n, &size);
-	if (!(rt = malloc(sizeof(int) * (size + 1))))
+	if (n <= 0)
+		size++;
+	if (!(rt = malloc(sizeof(char) * (size + 1))))
 		return (0);
-	set_itoa(rt, n, size);
+	if (n < 0)
+	{
+		rt[0] = '-';
+		num *= -1;
+		flag = 1;
+	}
+	set_itoa(rt, num, size - 1);
+	rt[size] = 0;
+	return (rt);
 }

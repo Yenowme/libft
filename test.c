@@ -5,16 +5,5 @@
 
 int main()
 {
-	char *s = "split  ||this|for|me|||||!|";
-	int i = 0;
-	char **result = ft_split(s, '|');
-
-	while (result[i])
-	{
-		printf ("%dis = %s\n",i , result[i]);
-		free(result[i]);
-		i++;
-	}
-	free(result);
-
+	printf("%s", ft_itoa(-5859));
 }
