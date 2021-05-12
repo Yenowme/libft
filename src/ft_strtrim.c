@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:42:45 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/11 15:51:32 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/12 18:22:04 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 
 	i = 0;
+	if (!s1 || !set)
+		return (0);
 	while ((ft_strchr(set, *s1)) && *s1)
 		s1++;
 	start = (char *)s1;

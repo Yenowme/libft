@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 14:53:05 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 18:11:28 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/12 18:36:17 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/12 18:41:19 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_stmapi(char const *s, char (*f)(unsigned int, char))
 {
-	while (n--)
+	char *rt;
+
+	rt = malloc(sizeof(char) * ft_strlen(s));
+	while(*s)
 	{
-		if (*(unsigned char *)s == (unsigned char)c)
-			return ((void*)s);
-		s++;
+
 	}
-	return (NULL);
 }

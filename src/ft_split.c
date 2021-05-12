@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:59:30 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 16:43:28 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/12 18:27:11 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static char	**x_malloc(char const *s, char c)
 	return (rt = (char**)malloc(sizeof(char*) * (x_size + 1)));
 }
 
-char		**final_free(char **rt, int k)
+int			final_free(char **rt, int k)
 {
 	while (--k > 0)
 		free(rt[k]);
@@ -39,18 +39,15 @@ char		**final_free(char **rt, int k)
 	return (0);
 }
 
-char		**ft_split(char const *s, char c)
+int			ft_split_sub(char const *s, char c, char **rt)
 {
-	char	**rt;
 	int		i;
-	int		k;
 	int		index;
 	int		y_size;
+	int		k;
 
-	i = 0;
 	k = 0;
-	if (!(rt = x_malloc(s, c)))
-		return (0);
+	i = 0;
 	while (s[i] == c)
 		i++;
 	index = i;
@@ -66,5 +63,18 @@ char		**ft_split(char const *s, char c)
 		index = i;
 	}
 	rt[k] = 0;
+	return (1);
+}
+
+char		**ft_split(char const *s, char c)
+{
+	char	**rt;
+
+	if (!s)
+		return (0);
+	if (!(rt = x_malloc(s, c)))
+		return (0);
+	if (!(ft_split_sub(s, c, rt)))
+		return (0);
 	return (rt);
 }
