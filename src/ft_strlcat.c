@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/01 15:11:13 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/10 17:02:42 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/13 17:26:34 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static size_t	set_size(char *str)
 	return (i);
 }
 
-size_t	ft_strlcat(char *dest, char *src, size_t size)
+size_t			ft_strlcat(char *dest, char *src, size_t size)
 {
 	size_t dest_s;
 	size_t src_s;

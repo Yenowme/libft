@@ -6,19 +6,27 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 18:36:17 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 18:41:19 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/13 17:25:32 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_stmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *rt;
+	char	*rt;
+	int		i;
 
-	rt = malloc(sizeof(char) * ft_strlen(s));
-	while(*s)
+	i = 0;
+	if (!s)
+		return (0);
+	if (!(rt = malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (0);
+	while (s[i])
 	{
-
+		rt[i] = f(i, s[i]);
+		i++;
 	}
+	rt[i] = 0;
+	return (rt);
 }
