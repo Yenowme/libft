@@ -6,11 +6,11 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 14:53:05 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 18:11:28 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 16:48:13 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

@@ -6,11 +6,10 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 17:14:16 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/10 17:51:30 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 16:46:59 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)

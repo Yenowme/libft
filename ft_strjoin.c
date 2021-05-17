@@ -6,11 +6,10 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:17:34 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/13 17:26:17 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 16:48:51 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

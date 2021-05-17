@@ -6,11 +6,11 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 21:27:40 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/16 16:47:33 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 16:48:45 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strdup(const char *src)
 {

@@ -6,11 +6,9 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/24 20:19:12 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/13 17:27:06 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 16:53:08 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_isalpha(int c)
 {
