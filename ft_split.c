@@ -6,13 +6,13 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:59:30 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/17 15:24:52 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 15:27:54 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**x_malloc(char const *s, char c)
+static char		**x_malloc(char const *s, char c)
 {
 	char	**rt;
 	int		x_size;
@@ -31,7 +31,7 @@ static char	**x_malloc(char const *s, char c)
 	return (rt = (char**)malloc(sizeof(char*) * (x_size + 1)));
 }
 
-int			final_free(char **rt, int k)
+int				final_free(char **rt, int k)
 {
 	while (--k > 0)
 		free(rt[k]);
@@ -67,7 +67,7 @@ static int		ft_split_sub(char const *s, char c, char **rt)
 	return (1);
 }
 
-char		**ft_split(char const *s, char c)
+char			**ft_split(char const *s, char c)
 {
 	char	**rt;
 
