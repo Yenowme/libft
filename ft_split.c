@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:59:30 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 18:27:11 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/17 15:24:52 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static char	**x_malloc(char const *s, char c)
 	while (*s)
 	{
 		x_size++;
-		while (*s != c)
+		while (*s != c && *s)
 			s++;
-		while (*s++ == c)
+		while (*s == c && *s)
 			s++;
 	}
 	return (rt = (char**)malloc(sizeof(char*) * (x_size + 1)));
@@ -39,7 +39,7 @@ int			final_free(char **rt, int k)
 	return (0);
 }
 
-int			ft_split_sub(char const *s, char c, char **rt)
+static int		ft_split_sub(char const *s, char c, char **rt)
 {
 	int		i;
 	int		index;
@@ -48,17 +48,18 @@ int			ft_split_sub(char const *s, char c, char **rt)
 
 	k = 0;
 	i = 0;
-	while (s[i] == c)
-		i++;
-	index = i;
+	index = 0;
 	while (s[i])
 	{
 		y_size = 0;
-		while (s[i++] != c)
+		while (s[i] != c && s[i])
+		{
+			i++;
 			y_size++;
+		}
 		if (!(rt[k++] = ft_substr(s, index, y_size)))
 			return (final_free(rt, k));
-		while (s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
 		index = i;
 	}
@@ -72,6 +73,10 @@ char		**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
+	if (!*s)
+		return (ft_calloc(1, sizeof(char**)));
+	while (*s == c && *s)
+		s++;
 	if (!(rt = x_malloc(s, c)))
 		return (0);
 	if (!(ft_split_sub(s, c, rt)))

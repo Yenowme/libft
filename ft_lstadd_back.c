@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 19:07:22 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/13 21:05:26 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/16 22:11:01 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (!*lst)
+	t_list *temp;
+
+	if (!lst || !new)
+		return ;
+	if (!(*lst))
 	{
 		*lst = new;
 		return ;
 	}
-	while ((*lst)->next)
-	{
-		*lst = (*lst)->next;
-	}
-	(*lst)->next = new;
+	temp = ft_lstlast(*lst);
+	temp->next = new;
 }

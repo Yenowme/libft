@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrcchr.c                                      :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/03 17:53:43 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/10 19:51:10 by yejeong          ###   ########.fr       */
+/*   Created: 2021/05/04 13:55:46 by yejeong           #+#    #+#             */
+/*   Updated: 2021/05/16 16:44:49 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	int i;
+#include "libft.h"
 
-	i = 0;
-	while (s[i])
-		i++;
-	while (i >= 0)
+void	ft_bzero(void *s, size_t len)
+{
+	unsigned char *temp;
+
+	temp = (unsigned char*)s;
+
+	while (len--)
 	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i--;
+		*temp = 0;
+		temp++;
 	}
-	return (0);
 }

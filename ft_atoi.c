@@ -6,11 +6,11 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:36:23 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/13 17:27:53 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/16 19:31:55 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned long	atoi_sub(char *str)
+static unsigned long	atoi_sub(const char *str)
 {
 	int				i;
 	unsigned long	rt;
@@ -27,7 +27,7 @@ static unsigned long	atoi_sub(char *str)
 	return (rt);
 }
 
-int						ft_atoi(char *str)
+int						ft_atoi(const char *str)
 {
 	int				i;
 	int				sum;

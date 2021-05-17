@@ -6,7 +6,7 @@
 /*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 19:42:45 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 18:22:04 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/05/16 16:58:09 by yejeong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		s1++;
 	start = (char *)s1;
 	if (!*start)
-		return (rt = malloc(1));
+		return (ft_strdup(""));
 	while (*s1)
 		s1++;
 	while (ft_strchr(set, *s1) && s1 > start)
