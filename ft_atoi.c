@@ -27,7 +27,7 @@ static unsigned long	atoi_sub(const char *str)
 	return (rt);
 }
 
-int						ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int				i;
 	int				sum;

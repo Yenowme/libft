@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 17:52:46 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/12 18:07:49 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/07/12 18:01:29 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	set_itoa(char *rt, long long n, int size)
 	}
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char		*rt;
 	int			size;
@@ -49,7 +49,8 @@ char		*ft_itoa(int n)
 	malloc_size(n, &size);
 	if (n <= 0)
 		size++;
-	if (!(rt = malloc(sizeof(char) * (size + 1))))
+	rt = malloc(sizeof(char) * (size + 1));
+	if (!rt)
 		return (0);
 	if (n < 0)
 	{

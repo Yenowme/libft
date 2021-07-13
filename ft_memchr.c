@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 14:53:05 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/17 16:48:13 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/07/12 18:04:59 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n--)
 	{
 		if (*(unsigned char *)s == (unsigned char)c)
-			return ((void*)s);
+			return ((void *)s);
 		s++;
 	}
 	return (NULL);

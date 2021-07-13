@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yejeong <yejeong@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jeong-yena <jeong-yena@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:59:30 by yejeong           #+#    #+#             */
-/*   Updated: 2021/05/17 16:56:55 by yejeong          ###   ########.fr       */
+/*   Updated: 2021/07/12 18:08:18 by jeong-yena       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		**x_malloc(char const *s, char c)
+static char	**x_malloc(char const *s, char c)
 {
 	char	**rt;
 	int		x_size;
@@ -28,10 +28,10 @@ static char		**x_malloc(char const *s, char c)
 		while (*s == c && *s)
 			s++;
 	}
-	return (rt = (char**)malloc(sizeof(char*) * (x_size + 1)));
+	return (rt = (char **)malloc(sizeof(char *) * (x_size + 1)));
 }
 
-static int		final_free(char **rt, int k)
+static int	final_free(char **rt, int k)
 {
 	while (--k > 0)
 		free(rt[k]);
@@ -39,7 +39,7 @@ static int		final_free(char **rt, int k)
 	return (0);
 }
 
-static int		ft_split_sub(char const *s, char c, char **rt)
+static int	ft_split_sub(char const *s, char c, char **rt)
 {
 	int		i;
 	int		index;
@@ -57,7 +57,8 @@ static int		ft_split_sub(char const *s, char c, char **rt)
 			i++;
 			y_size++;
 		}
-		if (!(rt[k++] = ft_substr(s, index, y_size)))
+		rt[k] = ft_substr(s, index, y_size);
+		if (!rt[k++])
 			return (final_free(rt, k));
 		while (s[i] == c && s[i])
 			i++;
@@ -67,17 +68,18 @@ static int		ft_split_sub(char const *s, char c, char **rt)
 	return (1);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**rt;
 
 	if (!s)
 		return (0);
 	if (!*s)
-		return (ft_calloc(1, sizeof(char**)));
+		return (ft_calloc(1, sizeof(char **)));
 	while (*s == c && *s)
 		s++;
-	if (!(rt = x_malloc(s, c)))
+	rt = x_malloc(s, c);
+	if (!rt)
 		return (0);
 	if (!(ft_split_sub(s, c, rt)))
 		return (0);
